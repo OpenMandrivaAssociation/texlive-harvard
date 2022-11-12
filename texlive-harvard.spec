@@ -1,19 +1,13 @@
-# revision 15878
-# category Package
-# catalog-ctan /macros/latex/contrib/harvard
-# catalog-date 2009-01-31 11:13:28 +0100
-# catalog-license lppl
-# catalog-version 2.0.5
 Name:		texlive-harvard
-Version:	2.0.5
-Release:	12
+Version:	15878
+Release:	1
 Summary:	Harvard citation package for use with LaTeX 2e
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/harvard
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/harvard.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/harvard.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/harvard.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/harvard.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/harvard.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/harvard.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -36,12 +30,12 @@ together with several styles whose authors offer no description
 of their behaviour.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -66,24 +60,11 @@ of their behaviour.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar bibtex tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 2.0.5-2
-+ Revision: 752501
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 2.0.5-1
-+ Revision: 718603
-- texlive-harvard
-- texlive-harvard
-- texlive-harvard
-- texlive-harvard
-
