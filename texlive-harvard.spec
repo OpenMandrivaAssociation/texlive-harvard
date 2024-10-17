@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	Harvard citation package for use with LaTeX 2e
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/harvard
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/harvard
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/harvard.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/harvard.doc.r%{version}.tar.xz
